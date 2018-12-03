@@ -1,26 +1,20 @@
 file = open("../Input/day1.in", "r")
 
 freq = 0
-d = []
-q = {}
-first = True
+data = []
+seen = {}
 
 for i in file:
-    d.append(i)
+    data.append(i)
 
 file.close()
+print(sum([int(x) for x in data]))
 
 while True:
-    for x in d:
-        if x[0] == "+":
-            freq += int(x[1:])
-        else:
-            freq -= int(x[1:])
-        if freq in q:
+    for x in data:
+        freq += int(x)
+        if freq in seen:
             print(freq)
             exit(0)
         else:
-            q[freq] = 0
-    if first:
-        print(freq)
-        first = False
+            seen[freq] = 0
