@@ -1,10 +1,10 @@
-from sys import stdin
 from collections import Counter
+file = open("../Input/day2.in", "r")
 
 twos, trees = 0, 0
 data = []
 
-for l in stdin:
+for l in file:
     data.append(l.strip())
     c = Counter(l.strip())
     d = set(c.values())
@@ -31,3 +31,4 @@ for i in range(len(data)-1):
         print(out)
         break
 
+file.close()

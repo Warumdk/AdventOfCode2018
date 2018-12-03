@@ -1,10 +1,10 @@
-from sys import stdin
+file = open("../Input/day3.in", "r")
 
 fabric = []
 [fabric.append([None] * 1000) for x in range(1000)]
 overlap = 0
 ids = {}
-for l in stdin:
+for l in file:
     data = l.split()
     x, y = data[2].split(",")
     y = int(y[:-1])
@@ -23,8 +23,10 @@ for l in stdin:
                     ids[d] = "shared"
                 overlap += 1
 
+print(overlap)
 
 for k in ids:
     if ids[k] == "alone":
-        print(k)
-print(overlap)
+        print(k[1:])
+
+file.close()
